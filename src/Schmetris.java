@@ -11,6 +11,7 @@ public class Schmetris extends PApplet {
     static final List<Class<? extends Tile>> PIECES = new ArrayList<>() {{
         add(IPiece.class);
         add(OPiece.class);
+        add(SPiece.class);
     }};
 
     Tile.TileValue[][] gridStates;
