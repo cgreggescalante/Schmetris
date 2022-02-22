@@ -11,7 +11,7 @@ public interface Tile {
         L_PIECE(4),
         T_PIECE(5),
         S_PIECE(6, 0, 220, 0),
-        Z_PIECE(7);
+        Z_PIECE(7, 230, 0, 0);
 
         public final int value, r, g, b;
 

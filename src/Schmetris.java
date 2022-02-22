@@ -12,6 +12,7 @@ public class Schmetris extends PApplet {
         add(IPiece.class);
         add(OPiece.class);
         add(SPiece.class);
+        add(ZPiece.class);
     }};
 
     Tile.TileValue[][] gridStates;
