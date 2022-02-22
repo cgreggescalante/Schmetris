@@ -48,6 +48,17 @@ public class Schmetris extends PApplet {
         drawGrid();
 
         if (tile == null) {
+            for (int i = 19; i > -1; i--) {
+                while (isRowFull(i)) {
+                    for (int j = 0; j < 10; j++) {
+                        gridStates[i][j] = Tile.TileValue.EMPTY;
+                        for (int k = i; k > 0; k--) {
+                            gridStates[k][j] = gridStates[k - 1][j];
+                        }
+                        gridStates[0][j] = Tile.TileValue.EMPTY;
+                    }
+                }
+            }
             tile = randomPiece();
             tile.addToGrid(gridStates);
         }
@@ -132,6 +143,24 @@ public class Schmetris extends PApplet {
         }
 
         return null;
+    }
+
+    public boolean isRowFull(int row) {
+        for (int i = 0; i < 10; i++) {
+            if (gridStates[row][i] == Tile.TileValue.EMPTY) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean isRowClear(int row) {
+        for (int i = 0; i < 10; i++) {
+            if (gridStates[row][i] != Tile.TileValue.EMPTY) {
+                return false;
+            }
+        }
+        return true;
     }
 
     public static void main(String[] args) {
